@@ -1,14 +1,28 @@
-export function Footer() {
+import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
+import { personalInfo } from "../data";
+import "./Footer.css";
+
+function Footer() {
   return (
-    <footer className="py-8 px-6 border-t border-border">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Stanley Ho. All rights reserved.
-        </p>
-        <p className="text-xs text-muted-foreground/50">
-          Built with React + Tailwind CSS
+    <footer className="footer">
+      <div className="container footer-inner">
+        <div className="footer-links">
+          <a href={personalInfo.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <FiGithub size={20} />
+          </a>
+          <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <FiLinkedin size={20} />
+          </a>
+          <a href={`mailto:${personalInfo.email}`} aria-label="Email">
+            <FiMail size={20} />
+          </a>
+        </div>
+        <p className="footer-text">
+          &copy; {new Date().getFullYear()} {personalInfo.name}
         </p>
       </div>
     </footer>
-  )
+  );
 }
+
+export default Footer;
