@@ -1,5 +1,6 @@
 import { FiGithub, FiLinkedin, FiMail } from "react-icons/fi";
 import { personalInfo } from "../data";
+import DecryptText from "./DecryptText";
 import "./Footer.css";
 
 function Footer() {
@@ -18,7 +19,7 @@ function Footer() {
           </a>
         </div>
         <p className="footer-text">
-          &copy; {new Date().getFullYear()} {personalInfo.name}
+          <DecryptText text={`© ${new Date().getFullYear()} ${personalInfo.name}`} delay={0} speed={25} />
         </p>
       </div>
     </footer>

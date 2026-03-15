@@ -1,76 +1,95 @@
-import { skills, education, interests, personalInfo } from "../data";
+import { skills, education, interests } from "../data";
+import DecryptText from "../components/DecryptText";
 import "./About.css";
 
 function About() {
   return (
-    <div className="about-page section">
+    <div id="about" className="about-page section">
       <div className="container">
-        <h1 className="section-title">About Me</h1>
+        <DecryptText
+          text="About Me"
+          as="h1"
+          className="section-title"
+          delay={0}
+          speed={30}
+        />
 
         <section className="about-section">
-          <h2>Who I Am</h2>
-          <p>
-            Write your bio here. Talk about who you are, what you're interested
-            in, and what drives you as a developer.
-          </p>
+          <DecryptText text="Who I Am" as="h2" delay={100} speed={30} />
+          <DecryptText
+            text="currently a high school junior at marin catholic high school. i am the co-president of the computer science club. besides programming, i love playing football and working out. in my free time, i play the piano, sleep, and eat."
+            as="p"
+            delay={300}
+            speed={20}
+          />
         </section>
 
         <section className="about-section">
-          <h2>Skills</h2>
+          <DecryptText text="Skills" as="h2" delay={100} speed={30} />
           <div className="skills-grid">
-            <div className="skill-category">
-              <h3>Strong</h3>
-              <div className="skill-tags">
-                {skills.strong.map((skill) => (
-                  <span key={skill} className="tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="skill-category">
-              <h3>Familiar</h3>
-              <div className="skill-tags">
-                {skills.familiar.map((skill) => (
-                  <span key={skill} className="tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
-            <div className="skill-category">
-              <h3>Learning</h3>
-              <div className="skill-tags">
-                {skills.learning.map((skill) => (
-                  <span key={skill} className="tag">
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+            {(["programminglanguages", "technical", "personal"] as const).map(
+              (level, i) => (
+                <div key={level} className="skill-category">
+                  <DecryptText
+                    text={
+                      level === "programminglanguages"
+                        ? "programming languages"
+                        : level
+                    }
+                    as="h3"
+                    delay={200 + i * 100}
+                    speed={25}
+                  />
+                  <div className="skill-tags">
+                    {skills[level].map((skill, j) => (
+                      <span key={skill} className="tag">
+                        <DecryptText
+                          text={skill}
+                          delay={300 + j * 80}
+                          speed={20}
+                        />
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ),
+            )}
           </div>
         </section>
 
         <section className="about-section">
-          <h2>Education</h2>
+          <DecryptText text="Education" as="h2" delay={100} speed={30} />
           <p>
-            <strong>{education.school}</strong> — Expected graduation{" "}
-            {education.graduationYear}
+            <strong>
+              <DecryptText text={education.school} delay={200} speed={20} />
+            </strong>
+            <DecryptText
+              text={` — expected graduation ${education.graduationYear}`}
+              delay={300}
+              speed={20}
+            />
           </p>
-          <h3>Relevant Coursework</h3>
+          <DecryptText
+            text="Relevant Coursework"
+            as="h3"
+            delay={400}
+            speed={25}
+          />
           <ul className="course-list">
-            {education.relevantCourses.map((course) => (
-              <li key={course}>{course}</li>
+            {education.relevantCourses.map((course, i) => (
+              <li key={course}>
+                <DecryptText text={course} delay={500 + i * 100} speed={20} />
+              </li>
             ))}
           </ul>
         </section>
 
         <section className="about-section">
-          <h2>Interests</h2>
+          <DecryptText text="Interests" as="h2" delay={100} speed={30} />
           <div className="skill-tags">
-            {interests.map((interest) => (
+            {interests.map((interest, i) => (
               <span key={interest} className="tag">
-                {interest}
+                <DecryptText text={interest} delay={200 + i * 80} speed={20} />
               </span>
             ))}
           </div>

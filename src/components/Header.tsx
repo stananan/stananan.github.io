@@ -1,12 +1,11 @@
 import { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-import { navLinks, personalInfo } from "../data";
+import { navLinks } from "../data";
+import DecryptText from "./DecryptText";
 import "./Header.css";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const location = useLocation();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
   const closeMenu = () => setMenuOpen(false);
@@ -14,19 +13,15 @@ function Header() {
   return (
     <header className="header">
       <div className="container header-inner">
-        <Link to="/" className="header-logo" onClick={closeMenu}>
-          {personalInfo.name}
-        </Link>
-
         <nav className="header-nav desktop-nav">
-          {navLinks.map((link) => (
-            <Link
+          {navLinks.map((link, i) => (
+            <a
               key={link.path}
-              to={link.path}
-              className={`nav-link ${location.pathname === link.path ? "active" : ""}`}
+              href={link.path}
+              className="nav-link"
             >
-              {link.label}
-            </Link>
+              <DecryptText text={link.label} delay={i * 80} speed={25} />
+            </a>
           ))}
         </nav>
 
@@ -41,14 +36,14 @@ function Header() {
         {menuOpen && (
           <nav className="header-nav mobile-nav">
             {navLinks.map((link) => (
-              <Link
+              <a
                 key={link.path}
-                to={link.path}
-                className={`nav-link ${location.pathname === link.path ? "active" : ""}`}
+                href={link.path}
+                className="nav-link"
                 onClick={closeMenu}
               >
-                {link.label}
-              </Link>
+                <DecryptText text={link.label} delay={0} speed={25} />
+              </a>
             ))}
           </nav>
         )}

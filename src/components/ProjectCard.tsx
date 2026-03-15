@@ -1,5 +1,6 @@
 import { FiGithub, FiExternalLink } from "react-icons/fi";
 import type { Project } from "../data";
+import DecryptText from "./DecryptText";
 import "./ProjectCard.css";
 
 interface ProjectCardProps {
@@ -14,19 +15,19 @@ function ProjectCard({ project }: ProjectCardProps) {
           <img src={project.image} alt={project.title} />
         ) : (
           <div className="project-image-placeholder">
-            <span>{project.title[0]}</span>
+            <DecryptText text={project.title[0]} delay={100} speed={25} />
           </div>
         )}
       </div>
 
       <div className="project-info">
-        <h3 className="project-title">{project.title}</h3>
-        <p className="project-description">{project.description}</p>
+        <DecryptText text={project.title} as="h3" className="project-title" delay={100} speed={25} />
+        <DecryptText text={project.description} as="p" className="project-description" delay={200} speed={20} />
 
         <div className="project-tags">
-          {project.technologies.map((tech) => (
+          {project.technologies.map((tech, i) => (
             <span key={tech} className="tag">
-              {tech}
+              <DecryptText text={tech} delay={300 + i * 60} speed={20} />
             </span>
           ))}
         </div>
@@ -39,7 +40,7 @@ function ProjectCard({ project }: ProjectCardProps) {
               rel="noopener noreferrer"
               className="project-link"
             >
-              <FiGithub size={16} /> Code
+              <FiGithub size={14} /> <DecryptText text="Code" delay={400} speed={25} />
             </a>
           )}
           {project.liveLink && (
@@ -49,7 +50,7 @@ function ProjectCard({ project }: ProjectCardProps) {
               rel="noopener noreferrer"
               className="project-link"
             >
-              <FiExternalLink size={16} /> Live Demo
+              <FiExternalLink size={14} /> <DecryptText text="Live" delay={400} speed={25} />
             </a>
           )}
         </div>

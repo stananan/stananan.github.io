@@ -28,92 +28,85 @@ export interface NavLink {
 }
 
 export const personalInfo: PersonalInfo = {
-  name: "Stanley Anandaraj",
-  title: "High School CS Student",
-  tagline: "Write your tagline here",
-  email: "your.email@example.com",
+  name: "stanley ho",
+  title: "High School Student",
+  tagline: "junior @ marincatholic",
+  email: "stanleyho862@gmail.com",
   github: "https://github.com/stananan",
-  linkedin: "#",
+  linkedin: "https://www.linkedin.com/in/stanley-ho-66748a338/",
   resumeLink: "/resume.pdf",
 };
 
 export const projects: Project[] = [
   {
     id: 1,
-    title: "Project Title 1",
-    description: "Write a short description of this project here.",
-    technologies: ["Tech 1", "Tech 2", "Tech 3"],
-    githubLink: "#",
-    liveLink: "#",
-    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=360&fit=crop",
+    title: "marin catholic cs",
+    description: "as co-president of the marin catholic cs club, i oversee and develop most of the projects. they range from fun parody web games to hackathon projects",
+    technologies: ["react", "js", "firebase"],
+    githubLink: "https://github.com/MarinCatholicCS/MarinCatholicCS.github.io",
+    liveLink: "https://marincatholiccs.github.io/",
+    image: "../../marincatholiccs.png",
   },
   {
     id: 2,
-    title: "Project Title 2",
-    description: "Write a short description of this project here.",
-    technologies: ["Tech 1", "Tech 2"],
-    githubLink: "#",
-    liveLink: "",
-    image: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=360&fit=crop",
+    title: "cos-visualizer",
+    description: "after learning about dot product in pre-calc, i was inspired to make a cosine similarity visualizer to show the textual similarity of sentences in natural language processing when turned into vectors",
+    technologies: ["react", "transformer.js", "three.js"],
+    githubLink: "https://github.com/stananan/cos-visualizer",
+    liveLink: "https://stananan.github.io/cos-visualizer/",
+    image: "../../cos-visualizer.png",
   },
   {
     id: 3,
-    title: "Project Title 3",
-    description: "Write a short description of this project here.",
-    technologies: ["Tech 1", "Tech 2", "Tech 3"],
-    githubLink: "#",
-    liveLink: "#",
-    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=360&fit=crop",
+    title: "voluntir",
+    description: "a platform (beta) that connects organizations and volunteers more effectivly than current solutions. in collaboration with nico zametto. this project won 1st @ bullhacks 2026 and honorable mention @ stanghacks 2026",
+    technologies: ["react", "firebase", "claude api", "remotion.js", "leaflet.js", "transformer.js"],
+    githubLink: "https://github.com/MarinCatholicCS/voluntir",
+    liveLink: "https://marincatholiccs.github.io/voluntir/",
+    image: "../../voluntir.png",
   },
   {
     id: 4,
-    title: "Project Title 4",
-    description: "Write a short description of this project here.",
-    technologies: ["Tech 1", "Tech 2"],
-    githubLink: "#",
-    liveLink: "",
-    image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=360&fit=crop",
-  },
-  {
-    id: 5,
-    title: "Project Title 5",
-    description: "Write a short description of this project here.",
-    technologies: ["Tech 1", "Tech 2", "Tech 3"],
-    githubLink: "#",
-    liveLink: "#",
-    image: "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&h=360&fit=crop",
+    title: "blewit",
+    description: "full stack app made in the summer of eighth grade in the class, 'advanced web development'. you can tell it was made by a eighth grader",
+    technologies: ["php", "mysql", "css"],
+    githubLink: "https://github.com/stananan/blewIt",
+    liveLink: "https://atdpsites.berkeley.edu/sho/aic/blewIt/index.php",
+    image: "../../blewit.png",
   },
 ];
 
 export const skills = {
-  strong: ["Skill 1", "Skill 2", "Skill 3", "Skill 4", "Skill 5"],
-  familiar: ["Skill 1", "Skill 2", "Skill 3", "Skill 4"],
-  learning: ["Skill 1", "Skill 2", "Skill 3"],
+  programminglanguages: ["javascript", "typescript", "java", "python", "php"],
+  technical: ["react", "git", "firebase", "rest apis", "cad", "arduino"],
+  personal: ["public speaking", "leadership", "time management"],
 };
 
 export const education = {
-  school: "Your School Name",
-  graduationYear: "2026",
+  school: "marin catholic",
+  graduationYear: "2027",
   relevantCourses: [
-    "Course 1",
-    "Course 2",
-    "Course 3",
-    "Course 4",
+    "ap chem",
+    "ap csa",
+    "apush",
+    "ap lang",
+    "ap spanish",
+    "macroeconomics (college of marin)",
+    "intro to engineering (college of marin)"
   ],
 };
 
 export const interests: string[] = [
-  "Interest 1",
-  "Interest 2",
-  "Interest 3",
-  "Interest 4",
-  "Interest 5",
-  "Interest 6",
+  "web development",
+  "artificial inteligence",
+  "robotics",
+  "mechanical engineering",
+  "entrepreneurship"
 ];
 
 export const navLinks: NavLink[] = [
-  { path: "/", label: "Home" },
-  { path: "/projects", label: "Projects" },
-  { path: "/about", label: "About" },
-  { path: "/contact", label: "Contact" },
+  { path: "#home", label: "Home" },
+  { path: "#projects", label: "Projects" },
+  { path: "#about", label: "About" },
+  { path: "#contact", label: "Contact" },
 ];
