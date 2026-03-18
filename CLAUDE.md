@@ -26,6 +26,7 @@ src/
 │   ├── Footer.tsx/css    # Exists but NOT used in App.tsx (removed from layout)
 │   ├── ProjectCard.tsx/css # Individual project card
 │   ├── DecryptText.tsx   # Character scramble/decrypt text animation
+│   ├── SectionReveal.tsx/css  # CRT scanline sweep on scroll-into-view
 │   └── ui/
 │       └── animated-grid-pattern.tsx  # Animated grid squares background
 └── pages/
@@ -46,8 +47,9 @@ src/
 ### No Fade-In Animations
 - Do NOT add `initial={{ opacity: 0 }}`, `whileInView`, or similar Framer Motion entrance animations to page content
 - The only animations allowed are:
-  1. **DecryptText** (`src/components/DecryptText.tsx`) — character scramble/reveal effect. Default is `animateOn="mount"` so all text decrypts on page load. Every piece of visible text should be wrapped in DecryptText.
+  1. **DecryptText** (`src/components/DecryptText.tsx`) — character scramble/reveal effect. Home uses `animateOn="mount"` (decrypts on page load). Below-the-fold sections (Projects, About, Contact) use `animateOn="view"` (decrypts on scroll). Every piece of visible text should be wrapped in DecryptText.
   2. **AnimatedGridPattern** (`src/components/ui/animated-grid-pattern.tsx`) — subtle animated squares background. Grid lines have been removed, only squares remain.
+  3. **SectionReveal** (`src/components/SectionReveal.tsx`) — CRT-style scanline that sweeps top-to-bottom across a section when it scrolls into view. Used on Projects, About, and Contact sections.
 
 ### No Decorative Dot Backgrounds
 - Do not add dotted, particle, or dot-grid background effects
@@ -61,7 +63,7 @@ src/
 5. **Build:** `npm run dev` for development, `npm run build` for production
 
 ## Implementation Notes
-- All text uses DecryptText with `animateOn="mount"` — animation triggers immediately, not on scroll
+- Home section uses DecryptText with `animateOn="mount"` (immediate). Below-the-fold sections (Projects, About, Contact) use `animateOn="view"` (scroll-triggered) and are wrapped in `SectionReveal` for a CRT scanline effect
 - DecryptText caps sequential animation to max 60 frames so long text doesn't take forever to decrypt
 - Project images are local files referenced from project root (e.g. `../../marincatholiccs.png`) with grayscale CSS filter
 - The header is sticky (48px height). Sections use `scroll-margin-top: 56px` to offset for the header when navigating via hash links
